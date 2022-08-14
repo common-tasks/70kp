@@ -8,8 +8,8 @@ import (
 
 func main() {
 var wg sync.WaitGroup;
-wg.Add(10)
 words := []string { "zero","one","two","three","four","five","six","seven","eight","nine",}
+wg.Add(len(words))
 
 for i, word := range words {
 	var data string = fmt.Sprintf("%d:%s",i,word)
