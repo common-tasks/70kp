@@ -10,29 +10,29 @@ import (
 
 func Test_print(t *testing.T) {
 
-stdout:=os.Stdout
+	stdout := os.Stdout
 
-r,w,_:=os.Pipe()
+	r, w, _ := os.Pipe()
 
-os.Stdout=w
+	os.Stdout = w
 
-var wg sync.WaitGroup
-wg.Add(1)
+	var wg sync.WaitGroup
+	wg.Add(1)
 
-go print("one",&wg)
+	go print("one", &wg)
 
-wg.Wait()
+	wg.Wait()
 
-_=w.Close()
+	_ = w.Close()
 
-result,_:=io.ReadAll(r)
+	result, _ := io.ReadAll(r)
 
-output:=string(result)
+	output := string(result)
 
-os.Stdout=stdout
+	os.Stdout = stdout
 
-if(!strings.Contains(output,"one")){
-	t.Errorf("expected one but it is not there")
-}
+	if !strings.Contains(output, "one") {
+		t.Errorf("expected one but it is not there")
+	}
 
 }
