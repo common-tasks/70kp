@@ -7,7 +7,9 @@ import (
 	"sync"
 	"testing"
 )
+func TestUpdateMessage(t *testing.T) {
 
+}
 func Test_print(t *testing.T) {
 
 	stdout := os.Stdout

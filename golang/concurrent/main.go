@@ -8,7 +8,7 @@ import (
 var msg string
 var wgmsg sync.WaitGroup
 
-func main() {
+func main01() {
 	raceConditionFunc()
 
 	// time.Sleep(time.Second)
