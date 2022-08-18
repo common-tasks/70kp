@@ -10,7 +10,7 @@ import (
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseFiles("variable.gohtml","slice.gohtml", "map.gohtml","struct.gohtml"))
+	tpl = template.Must(template.ParseFiles("variable.gohtml","slice.gohtml", "map.gohtml","struct.gohtml","structslice.gohtml"))
 }
 func main() {
 	printSomething("hello", "world")
@@ -22,6 +22,8 @@ func main() {
 	passMap()
 
 	passStruct()
+
+	passSliceOfStruct()
 }
 
 func singleVariable() {
