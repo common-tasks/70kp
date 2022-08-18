@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html lang="en>
+		<head>
+		<meta charset="UTF-8">
+		<title>Hello World</title>
+		</head>
+	<body>
+		
+        <ul>
+        {{range .Students}}
+		<li>{{.Name}}: {{.Class}}</li>
+        </ul>
+		{{end}}
+
+        <ul>
+        {{range .Classes}}
+		<li>{{.ClassNumber}}: {{.NumberOfStudents}}</li>
+        </ul>
+		{{end}}
+        
+	</body>
+</html>
+	
