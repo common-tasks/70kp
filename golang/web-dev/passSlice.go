@@ -9,7 +9,7 @@ func composite() {
 
 	slc := []string{"hello", "world", "I", "have", "arrived"}
 
-	err := tpl.ExecuteTemplate(os.Stdout, "tpl3.gohtml", slc)
+	err := tpl.ExecuteTemplate(os.Stdout, "slice.gohtml", slc)
 
 	if err != nil {
 		log.Println(err)

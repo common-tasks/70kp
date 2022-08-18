@@ -14,7 +14,7 @@ func passMap() {
 		"name04": "khalko",
 	}
 
-	err := tpl.ExecuteTemplate(os.Stdout, "tpl4.gohtml", map01)
+	err := tpl.ExecuteTemplate(os.Stdout, "map.gohtml", map01)
 	if err != nil {
 		log.Fatalln(err)
 	}
