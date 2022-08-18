@@ -6,22 +6,31 @@ import (
 	"os"
 	"text/template"
 )
+
 var tpl *template.Template
-func init(){
-	tpl=template.Must(template.ParseFiles("tpl2.gohtml"))
+
+func init() {
+	tpl = template.Must(template.ParseFiles("tpl2.gohtml", "tpl3.gohtml"))
 }
 func main() {
-	printSomething("hello","world")
-		err:=tpl.Execute(os.Stdout,"tridev")
-		if(err!=nil){
-			log.Fatalln(err)
-		}
-	}
+	printSomething("hello", "world")
+	
+	singleVariable()
 
-func printSomething(s ...string){
+	composite()
+}
+
+func singleVariable() {
+	err := tpl.Execute(os.Stdout, "tridev")
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func printSomething(s ...string) {
 	for _, str := range s {
 		fmt.Println(str)
-		
+
 	}
 
 }
