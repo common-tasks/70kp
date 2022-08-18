@@ -14,7 +14,7 @@ func init() {
 }
 func main() {
 	printSomething("hello", "world")
-	
+
 	singleVariable()
 
 	composite()

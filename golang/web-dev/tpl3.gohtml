@@ -8,8 +8,8 @@
 	<body>
 	<ul>
 	
-	{{range .}}
-	<li>{{.}}</li>
+	{{range $index,$val:= .}}
+	<li>{{$index}}: {{$val}}</li>
 	{{end}}
 
 	</ul>
