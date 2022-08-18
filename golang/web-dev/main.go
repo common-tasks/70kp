@@ -1,19 +1,27 @@
 package main
 
 import (
-	
+	"fmt"
 	"log"
-	"os"	
+	"os"
 	"text/template"
 )
-
+var tpl *template.Template
+func init(){
+	tpl=template.Must(template.ParseFiles("tpl2.gohtml"))
+}
 func main() {
-	tpl,err:=template.ParseFiles("tpl.gohtml")
-	if(err!=nil){
-		log.Fatalln(err)
+	printSomething("hello","world")
+		err:=tpl.Execute(os.Stdout,"tridev")
+		if(err!=nil){
+			log.Fatalln(err)
+		}
 	}
-	err=tpl.Execute(os.Stdout,nil)
-	if(err!=nil){
-		log.Fatalln(err)
+
+func printSomething(s ...string){
+	for _, str := range s {
+		fmt.Println(str)
+		
 	}
-	}
+
+}
