@@ -10,7 +10,7 @@ import (
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseFiles("tpl2.gohtml", "tpl3.gohtml"))
+	tpl = template.Must(template.ParseFiles("tpl2.gohtml", "tpl3.gohtml","tpl4.gohtml"))
 }
 func main() {
 	printSomething("hello", "world")
@@ -18,6 +18,8 @@ func main() {
 	singleVariable()
 
 	composite()
+
+	passMap()
 }
 
 func singleVariable() {
