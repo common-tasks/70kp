@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -36,6 +37,9 @@ func readText() {
 	}
 }
 func handle(connection net.Conn) {
+	
+	connection.SetDeadline(time.Now().Add(10*time.Second))
+
 	scanner := bufio.NewScanner(connection)
 
 	for scanner.Scan() {
