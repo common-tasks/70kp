@@ -1,10 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io"
 	"log"
 	"net"
+	"strings"
 )
 
 func main() {
@@ -12,7 +13,9 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
+	readText()
 	fmt.Println("tcp server listening")
+
 	defer listener.Close()
 
 	for {
@@ -20,11 +23,26 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-		fmt.Println("tcp server called")
-		io.WriteString(connection, "\n Hello from tcp server")
-		fmt.Fprintln(connection, "\n how is it going")
-		fmt.Fprintf(connection, "%v", "\n well I guess")
-
-		connection.Close()
+		go handle(connection)
 	}
+}
+
+func readText() {
+	s := "hello there \n I am here \n just a voicemail away \n set an appointment to meet me any time \n and I will cancel that"
+	scanner := bufio.NewScanner(strings.NewReader(s))
+	// scanner.Split(bufio.ScanRunes)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+}
+func handle(connection net.Conn) {
+	scanner := bufio.NewScanner(connection)
+
+	for scanner.Scan() {
+		content := scanner.Text()
+		fmt.Println(content)
+	}
+	defer connection.Close()
+
+	fmt.Println("done")
 }
