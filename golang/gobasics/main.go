@@ -43,8 +43,29 @@ func main() {
 	// aboutArrays()
 	// aboutSlices()
 	// aboutMaps()
-	aboutMethods()
+	// aboutMethods()
+	aboutChannels()
 }
+
+func aboutChannels() {
+	num := []int{4,6,3,8,10,2}
+	c:=make(chan int)
+	go addSliceElements(num[0:3],c)
+	go addSliceElements(num[3:6],c)
+	x,y:=<-c,<-c
+
+	fmt.Println(x,y)
+
+
+}
+func addSliceElements(s []int, c chan int) {
+	sum := 0
+	for _, v := range s {
+		sum = sum + v
+	}
+	c <- sum
+}
+
 func aboutMethods() {
 	var calculator Calc
 	result := Addition(calculator, 1, 2)
