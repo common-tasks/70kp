@@ -1,22 +1,29 @@
 package main
 
 import (
-	"fmt"
+	"html/template"
+	"log"
 	"net/http"
 )
 
-type myhttp int
+type myserver int
 
-func (m myhttp) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	var msg string = " my http server"
-	fmt.Println(msg)
-	fmt.Fprintln(w,msg)
-	
+func (ms myserver) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+	err := req.ParseForm()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	tpl.ExecuteTemplate(w, "request.gohtml", req.Form)
 }
+
+var tpl *template.Template
+
+func init() {
+	tpl = template.Must(template.ParseFiles("request.gohtml"))
+}
+
 func main() {
-	
-	var mhttp myhttp
-
-	http.ListenAndServe("localhost:8080", mhttp)
-
+	var ms myserver
+	http.ListenAndServe(":8080", ms)
 }
