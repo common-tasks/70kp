@@ -10,7 +10,12 @@ func main() {
 	// switchStatement()
 	// deferStatement()
 	// aboutArrays()
-	aboutSlices()
+	// aboutSlices()
+	aboutMaps()
+}
+
+func aboutMaps(){
+
 }
 func aboutSlices() {
 	sl := make([]string, 0)
