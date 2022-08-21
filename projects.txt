@@ -1,0 +1,6 @@
+1. Server implementation in Go 
+2. Client in react and angular
+3. Deployment in cloud
+4. millions of request per second
+5. Microservices architecture
+6. No SQL DB
