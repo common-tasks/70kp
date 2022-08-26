@@ -1,6 +1,10 @@
+import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
 import "./App.css";
 
-function App() {
+
+export default class AppContent extends Component{
+  render(){
   return (
     <div className="app">
       <div>
@@ -9,5 +13,6 @@ function App() {
     </div>
   );
 }
+}
 
-export default App;
+
