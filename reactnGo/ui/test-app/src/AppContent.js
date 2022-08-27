@@ -22,7 +22,7 @@ export default class AppContent extends Component {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((json) => {
-        this.setState({ ulist: json });
+        // this.setState({ ulist: json });
         this.handleListChange(json);
         // console.log(json);
       });
