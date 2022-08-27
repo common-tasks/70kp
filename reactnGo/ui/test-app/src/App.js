@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 
 export default class AppContent extends Component {
+
+  mouseMoved = () =>{
+    console.log('mouse moved');
+  }
   fetchList = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
@@ -28,6 +32,8 @@ export default class AppContent extends Component {
           </button>
         </div>
         <br></br>
+        <hr></hr>
+        <p onMouseOut={this.mouseMoved}>para1</p>
         <ul id="ulist"></ul>
       </div>
     );
