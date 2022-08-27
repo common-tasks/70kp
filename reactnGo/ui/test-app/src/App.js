@@ -1,44 +1,38 @@
 import React, { Component } from "react";
 import "./App.css";
+import AppHeader from "./AppHeader";
+import AppFooter from "./AppFooter";
+import AppContent from "./AppContent";
+import AppFooterFunctionalComponent from "./AppFooterFunctionalComponent";
 
-export default class AppContent extends Component {
+export default class App extends Component {
+  myVars = {
+    msg1: "hello",
+    msg2: " world",
+    msg3: " callme anytime and I will ignore the call ",
+  };
   constructor(props) {
     super(props);
-    this.ulistRef = React.createRef();
+    this.handleListChange = this.handleListChange.bind(this);
+    this.state = { lists: [] };
   }
-  mouseMoved = () => {
-    console.log("mouse moved");
-  };
-  fetchList = () => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((json) => {
-        // var ulist = document.getElementById('ulist');
-        const ulist = this.ulistRef.current;
-        json.forEach((element) => {
-          let list = document.createElement("li");
-          list.appendChild(document.createTextNode(element.title));
-          ulist.appendChild(list);
-        });
-        console.log(json);
-      });
-  };
+  handleListChange(lists) {
+    console.log("handleListChange called of App component called");
+    this.setState({ lists: lists });
+  }
+
   render() {
     return (
       <div className="app">
-        <div>
-          <h1>
-            {this.props.msg1} {this.props.msg2} {this.props.msg3}
-          </h1>
-          <br></br>
-          <button className="btn btn-primary" onClick={this.fetchList}>
-            Fetch Data
-          </button>
-        </div>
-        <br></br>
-        <hr></hr>
-        <p onMouseOut={this.mouseMoved}>para1</p>
-        <ul id="ulist" ref={this.ulistRef}></ul>
+        <AppHeader
+          greetingmsg="Hello World !"
+          {...this.myVars}
+          lists={this.state.lists}
+          handleListChange={this.handleListChange}
+        ></AppHeader>
+        <AppContent handleListChange={this.handleListChange}></AppContent>
+        <AppFooter></AppFooter>
+        <AppFooterFunctionalComponent AuthorName={"Anurag Kumar"}></AppFooterFunctionalComponent>
       </div>
     );
   }
