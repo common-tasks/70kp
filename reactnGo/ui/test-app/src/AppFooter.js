@@ -5,7 +5,7 @@ export default class AppFooter extends Component{
     render(){
         var currentYear = new Date().getFullYear()
         return (
-            <Fragment className='app'>
+            <Fragment>
             <hr></hr>
             <p className='footer'>Copyright {currentYear} @Anurag Kumar</p>
             </Fragment>

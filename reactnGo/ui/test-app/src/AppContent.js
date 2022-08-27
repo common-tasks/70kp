@@ -5,7 +5,8 @@ export default class AppContent extends Component{
         return(
             <p>base content 
                 <br></br>
-                <button href='#' class="btn btn-primary">Click!</button>
+                <button href='#' className="btn btn-primary">Click!</button>
+               
             </p>
         );
     }
