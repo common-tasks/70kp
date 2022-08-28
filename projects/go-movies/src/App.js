@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 import Movies from "./component/Movies";
 import Admin from "./component/Admin";
 import Home from "./component/Home";
@@ -10,7 +16,7 @@ export default class App extends Component {
       <Router>
         <div className="container">
           <div className="row">
-            <h1 className="mt-3">Plaza Cinema Hall</h1>
+            <h1 className="mt-3">Watch Movies!!!</h1>
             <hr className="mb-3"></hr>
           </div>
           <div className="row">
@@ -24,6 +30,9 @@ export default class App extends Component {
                     <Link to="/movies">Movies</Link>
                   </li>
                   <li className="list-group-item">
+                    <Link to="/catogories">Catogories</Link>
+                  </li>
+                  <li className="list-group-item">
                     <Link to="/admin">Manage Catalog</Link>
                   </li>
                 </ul>
@@ -31,12 +40,10 @@ export default class App extends Component {
             </div>
             <div className="col-md-10">
               <Routes>
-                <Route path='/movies' element={<Movies/>}>
-                </Route>
-                <Route path='/admin' element ={<Admin/>}>                
-                </Route>
-                <Route path='/home' element={<Home/>}>
-                </Route>
+                <Route path="/movies/:id" element={<Movie />}></Route>
+                <Route path="/movies" element={<Movies />}></Route>
+                <Route path="/admin" element={<Admin />}></Route>
+                <Route path="/home" element={<Home />}></Route>
               </Routes>
             </div>
           </div>
@@ -44,4 +51,8 @@ export default class App extends Component {
       </Router>
     );
   }
+}
+function Movie() {
+  let { id } = useParams();
+  return <h1>Movie id {id}</h1>;
 }
