@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Movies from "./component/Movies";
 import Admin from "./component/Admin";
 import Home from "./component/Home";
@@ -18,7 +18,7 @@ export default class App extends Component {
               <nav>
                 <ul className="list-group">
                   <li className="list-group-item">
-                    <Link to="/">Home</Link>
+                    <Link to="/home">Home</Link>
                   </li>
                   <li className="list-group-item">
                     <Link to="/movies">Movies</Link>
@@ -30,17 +30,14 @@ export default class App extends Component {
               </nav>
             </div>
             <div className="col-md-10">
-              <Switch>
-                <Route path="/movies">
-                <Movies />
+              <Routes>
+                <Route path='/movies' element={<Movies/>}>
                 </Route>
-                <Route path="/admin">
-                <Admin />
+                <Route path='/admin' element ={<Admin/>}>                
                 </Route>
-                <Route path="/" >
-                <Home />
+                <Route path='/home' element={<Home/>}>
                 </Route>
-              </Switch>
+              </Routes>
             </div>
           </div>
         </div>
