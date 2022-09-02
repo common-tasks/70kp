@@ -2,8 +2,13 @@ import React, { useState } from "react";
 
 const UseStateCounter = () => {
   const [value, setValue] = useState(0);
-  const btnClickHandler = (caller) => {
-    console.log(caller);
+  const incrementLater = () => {
+    setTimeout(() => {
+      // setValue(value+1);
+      setValue((value) => {
+        return value + 1;
+      });
+    }, 2000);
   };
   return (
     <>
@@ -33,6 +38,9 @@ const UseStateCounter = () => {
           }}
         >
           Decrease
+        </button>
+        <button className="btn" onClick={incrementLater}>
+          Increment Later
         </button>
       </section>
     </>
