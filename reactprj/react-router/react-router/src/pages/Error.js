@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 const Error = () => {
   return (
-    <section className='section'>
-      <h2>Error</h2>
-      <Link to='/home' className="btn">Home</Link>
-    </section>
+    <>
+      <section className="section">
+        <h2>error</h2>
+      </section>
+    </>
   );
 };
 export default Error;
