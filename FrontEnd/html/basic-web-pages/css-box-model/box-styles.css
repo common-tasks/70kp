@@ -1,0 +1,41 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+
+h1,
+p {
+  background-color: lightgray;
+}
+
+h1 {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  border: 2px solid #5d6063;
+}
+p {
+  border: 2px solid red;
+  padding: 20px 0 20px 10px;
+  margin-bottom: 50px;
+}
+
+em,
+strong {
+  background-color: lightblue;
+  display: inline;
+}
+strong {
+  margin: 5px;
+}
+
+div {
+  color: #fff;
+  background-color: #5995da;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5d6063;
+  border-radius: 5px;
+  width: 50px;
+}
