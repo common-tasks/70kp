@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+
 const TableHeader = () => {
   return (
     <thead>
@@ -9,31 +10,32 @@ const TableHeader = () => {
     </thead>
   );
 };
-const TableBody = () => {
-  return (
-    <tbody>
-      <tr>
-        <td>Anurag</td>
-        <td>Software Engineer</td>
+const TableBody = (props) => {
+  const rows = props.people.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.job}</td>
+        <td>
+          <button onClick={() => props.removepeople(index)}>Delete</button>
+        </td>
       </tr>
-      <tr>
-        <td>Kunar</td>
-        <td>Sabji bhecho</td>
-      </tr>
-    </tbody>
-  );
+    );
+  });
+  return <tbody>{rows}</tbody>;
 };
-class Table extends Component {
-  render() {
+const Table = (props) => {
+  {
+    const { people, removepeople } = props;
     return (
       <>
         <table>
           <TableHeader />
-          <TableBody />
+          <TableBody people={people} removepeople={removepeople} />
         </table>
       </>
     );
   }
-}
+};
 
 export default Table;
