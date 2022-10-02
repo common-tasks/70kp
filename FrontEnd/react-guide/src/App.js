@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+const user = {
+  name: "james khalkho",
+  job: "full time",
+};
+const name = "murmu kumar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        hello {name} and {formatName(user)}
+      </h1>
+      <GetName name="kunar" />
+      <GetName name="gammu" />
     </div>
   );
 }
-
+function formatName(user) {
+  return user.name + "::" + user.job;
+}
+function GetName(props) {
+  return <h1>{props.name}</h1>;
+}
 export default App;
