@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import App from "./App";
 
 class DispalyTime extends React.Component {
   constructor(props) {
@@ -30,4 +31,4 @@ class DispalyTime extends React.Component {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<DispalyTime />);
+root.render(<App />);
