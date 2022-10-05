@@ -1,0 +1,14 @@
+Created by team in google
+
+Ken Thompson
+Kenneth Lane Thompson (born February 4, 1943) is an American pioneer of computer science. Thompson worked at Bell Labs for most of his career where he designed and implemented the original Unix operating system. He also invented the B programming language, the direct predecessor to the C programming language, and was one of the creators and early developers of the Plan 9 operating system
+
+Rob Pike
+Robert "Rob" C. Pike (born 1956) is a Canadian programmer and author. He is best known for his work on the Go programming language and at Bell Labs, where he was a member of the Unix team and was involved in the creation of the Plan 9 from Bell Labs and Inferno operating systems, as well as the Limbo programming language.
+
+
+Robert Griesemer
+is a Swiss computer scientist. He is best known for his work on the Go programming language. Go is a statically typed, compiled programming language. Prior to Go, He worked on Google's V8 JavaScript engine, the Sawzall language, the Java HotSpot virtual machine, and the Strongtalk system
+
+https://en.wikipedia.org/wiki/Robert_Griesemer
+

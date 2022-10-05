@@ -1,0 +1,9 @@
+Setup
+
+1. Install go from https://golang.org/dl/
+2. Install visual studio code
+3. In visual studio code > View>Extensions>Install Go Extension 
+4. Open any file in visual studio change to language Go and then install Go related analysis tools.
+
+
+
