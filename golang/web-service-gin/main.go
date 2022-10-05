@@ -15,8 +15,8 @@ type album struct {
 
 var albums = []album{
 	{ID: "1", Title: "Jharkhand top ten", Artist: "hero khalkho", Price: 200},
-	{ID: "2", Title: "iskool ke tame pe", Artist: "jheel rani", Price: 200},
-	{ID: "1", Title: "jhar bros", Artist: "pan kumar", Price: 200},
+	{ID: "2", Title: "iskool ke tame pe", Artist: "jheel rani", Price: 20},
+	{ID: "3", Title: "jhar bros", Artist: "pan kumar", Price: 20.25},
 }
 
 func main() {
