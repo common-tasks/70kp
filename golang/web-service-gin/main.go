@@ -29,14 +29,33 @@ func handleRestCalls() {
 	router := gin.Default()
 	router.GET("/albums", getAlbums)
 	router.POST("/albums", postAlbums)
+	router.GET("/ping", handlePing)
+	router.GET("/albums/:id",getAlbumByID)
 	router.Run("localhost:8080")
 }
-
+func handlePing(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, gin.H{
+		"message": "pong",
+	})
+}
 func getAlbums(c *gin.Context) {
 	fmt.Println("getAlbums called")
 	c.IndentedJSON(http.StatusOK, albums)
 }
+func getAlbumByID(c *gin.Context) {
+	id := c.Param("id")
 
+	for _, v := range albums {
+		if(v.ID==id){
+			c.IndentedJSON(http.StatusOK,v)
+			return
+		}
+	}
+
+	c.IndentedJSON(http.StatusNotFound,gin.H{
+		"message":"album not found",
+	})
+}
 func postAlbums(c *gin.Context) {
 	fmt.Println("post album request received")
 	var newAlbum album
