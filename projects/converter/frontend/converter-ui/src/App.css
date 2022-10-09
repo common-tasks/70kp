@@ -1,3 +1,30 @@
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 100vh;
+  
+}
+
+.left, .right {
+  width: 25%;
+  background-color: cornflowerblue;
+  
+}
+
+.middle {
+  width: 50%;
+  background-color: floralwhite;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 .App {
   text-align: center;
 }
@@ -36,3 +63,4 @@
     transform: rotate(360deg);
   }
 }
+
