@@ -13,6 +13,8 @@
 
             int findIndex2 = GenerateHashIndex(word2);
 
+            int findIndex3 = GenerateHashIndex("zzzzzzzzzz");
+
         }
 
         private static void Insert(string[] wordsDictionary, string word1, string word2)
@@ -75,6 +77,22 @@
                     return 17;
                     case 'r':
                         return 18;
+                    case 's':
+                        return 19;
+                    case 't':
+                        return 20;
+                case 'u':
+                    return 21;
+                case 'v':
+                    return 22;
+                    case 'w':
+                        return 23;
+                case 'x':
+                    return 24;
+                case 'y':
+                    return 25;
+                case 'z':
+                    return 26;
 
                 default:
                     break;
