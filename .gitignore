@@ -2,3 +2,6 @@
 /CodeTests/bin
 /netCore/DotNetCorePrjs/ConsoleApp/obj
 /netCore/DotNetCorePrjs/ConsoleApp/bin
+/netCore/DotNetCorePrjs/TestLibrary/obj
+/netCore/DotNetCorePrjs/TestLibrary/bin
+/netCore/DotNetCorePrjs/.vs

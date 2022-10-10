@@ -1,4 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using TestLibrary;
 
-Dictionary<int, int> unq = new Dictionary<int, int>();
+Hash.Test();
