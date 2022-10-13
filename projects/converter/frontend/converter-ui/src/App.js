@@ -1,19 +1,19 @@
 import "./App.css";
+import LeftAreaComponent from "./Components/LeftArea/LeftAreaComponent";
+import CenterAreaComponent from "./Components/CenterArea/CenterAreaComponent";
+import RightAreaComponent from "./Components/RightArea/RightAreaComponent";
 
 function App() {
   return (
     <div className="row">
       <div className="column left">
-        <h2>Column 1</h2>
-        <p>Some text..</p>
+       <LeftAreaComponent />
       </div>
       <div className="column middle" >
-        <h2>Column 2</h2>
-        <p>Some text..</p>
+        <CenterAreaComponent />
       </div>
       <div className="column right">
-        <h2>Column 3</h2>
-        <p>Some text..</p>
+        <RightAreaComponent />
       </div>
     </div>
   );
