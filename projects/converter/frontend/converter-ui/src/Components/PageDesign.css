@@ -1,0 +1,26 @@
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 100vh;
+    
+  }
+  
+  .left, .right {
+    width: 25%;
+    background-color:floralwhite;
+    
+  }
+  
+  .middle {
+    width: 50%;
+    background-color:whitesmoke;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
