@@ -1,7 +1,7 @@
 import React from "react";
 import "./Search.css";
 
-function SearchBox({onTextChanged}) {
+function SearchBox({ onTextChanged }) {
   return (
     <div className="main">
       <input

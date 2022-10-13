@@ -5,16 +5,16 @@ import RightAreaComponent from "./RightArea/RightAreaComponent";
 import "./PageDesign.css";
 
 function PageLayout() {
-  const handleSearchTextChanged = (searchText)=>{
-    console.log('search text in PageLayout ' + searchText);
-  }
+  const handleSearchTextChanged = (searchText) => {
+    console.log("search text in PageLayout " + searchText);
+  };
   return (
     <div className="row">
       <div className="column left">
         <LeftAreaComponent />
       </div>
       <div className="column middle">
-        <CenterAreaComponent OnSearchTextChanged = {handleSearchTextChanged}/>
+        <CenterAreaComponent OnSearchTextChanged={handleSearchTextChanged} />
       </div>
       <div className="column right">
         <RightAreaComponent />

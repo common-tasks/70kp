@@ -1,10 +1,10 @@
 import React from "react";
 import SearchBox from "./Search/SearchBox";
 
-function CenterAreaComponent({handleSearchTextChanged}) {
+function CenterAreaComponent({ OnSearchTextChanged }) {
   const handleSearchText = (text) => {
     console.log("text is " + text);
-    ;
+    OnSearchTextChanged(text);
   };
   return (
     <>
