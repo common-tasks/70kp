@@ -8,13 +8,13 @@
 
 .left, .right {
   width: 25%;
-  background-color: cornflowerblue;
+  background-color:floralwhite;
   
 }
 
 .middle {
   width: 50%;
-  background-color: floralwhite;
+  background-color:whitesmoke;
 }
 
 /* Clear floats after the columns */
