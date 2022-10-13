@@ -1,14 +1,16 @@
 import React from "react";
 import SearchBox from "./Search/SearchBox";
 
-class CenterAreaComponent extends React.Component {
-  render() {
-    return (
-        <>
-        <SearchBox />
-        </>
-    );
-  }
+function CenterAreaComponent({handleSearchTextChanged}) {
+  const handleSearchText = (text) => {
+    console.log("text is " + text);
+    ;
+  };
+  return (
+    <>
+      <SearchBox onTextChanged={handleSearchText} />
+    </>
+  );
 }
 
 export default CenterAreaComponent;
