@@ -1,11 +1,14 @@
 import React from "react";
+import SearchBox from "./Search/SearchBox";
 
 class CenterAreaComponent extends React.Component {
-    render() {
-        return (
-             <h1>Center Area</h1>
-        );
-    }
+  render() {
+    return (
+        <>
+        <SearchBox />
+        </>
+    );
+  }
 }
 
-export default CenterAreaComponent
+export default CenterAreaComponent;
