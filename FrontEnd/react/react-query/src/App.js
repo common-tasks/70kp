@@ -22,14 +22,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="container">Users Name</h1>
-      {data.map((users, id) => {
-        return (
-          <li className="container" key={id}>
-            {users.name}
-          </li>
-        );
-      })}
+      <h1>{data}</h1>
+      
       <h4>{status}</h4>
     </div>
   );
