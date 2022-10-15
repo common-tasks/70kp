@@ -1,10 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"net/http"
-
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
+	"net/http"
 )
 
 type Service struct {
@@ -16,21 +17,46 @@ type Response struct {
 }
 
 func main() {
-	fmt.Println("starting backend server")
-	//create a new router
-	router := mux.NewRouter()
-	router.HandleFunc("/health-check", HealthCheck).Methods("GET")
 
-	fmt.Println("starting server");
+	//create a new router
+	router := mux.NewRouter().StrictSlash(true)
+	router.HandleFunc("/health-check", HealthCheck).Methods("GET")
+	router.HandleFunc("/allServices", AllServices)
+	var port string = ":9999"
+	fmt.Println("starting server")
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowCredentials: true,
+	})
+	handler := c.Handler(router)
 	//start and listen to the request
-	http.ListenAndServe(":9999",router);
+	http.ListenAndServe(port, handler)
 
 }
 
 func HealthCheck(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("health check is called")
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-		w.WriteHeader(http.StatusOK)
-		fmt.Fprintf(w,"API is running")
+	fmt.Println("End point hit : health-check")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "health is good")
+}
+
+func AllServices(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("End point hit : AllServices")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(GetServices())
+
+}
+func GetServices() []Service {
+	services := []Service{}
+	var service1 Service
+	service1.ServiceID = "1"
+	service1.ServiceName = "CurrencyConverter"
+
+	var service2 Service
+	service2.ServiceID = "1"
+	service2.ServiceName = "TimeConverter"
+
+	services = append(services, service1, service2)
+	return services
+
 }
