@@ -1,5 +1,5 @@
 import "./App.css";
-import { getHealth, getServices } from "./RestClient";
+import { getHealth, getServices, getService } from "./RestClient";
 import { useQuery } from "react-query";
 
 function App() {
@@ -9,6 +9,11 @@ function App() {
 
   if (services.data) {
     console.log('list of services ' + JSON.stringify(services.data));
+  }
+
+  const specificService = useQuery("specificService",getService('CurrencyConverter'));
+  if(specificService.data) {
+    console.log('specific service ' + JSON.stringify(specificService.data));
   }
 
   if (healthStatus.isLoading) {
