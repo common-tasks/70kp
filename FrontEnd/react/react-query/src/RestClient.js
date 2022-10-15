@@ -15,4 +15,14 @@ async function getService(serviceName) {
     console.log('data received from specific service request ' +  JSON.stringify(data));
     return data;
 }
-export {getHealth,getServices,getService};
+
+async function updateService(service) {
+
+    const {data} = await axios.post('http://localhost:9999/services',{
+        name: 'calculator',
+        id: 'xyz',
+      });
+      console.log('post service data'+ JSON.stringify(data));
+      return data;
+}
+export {getHealth,getServices,getService,updateService};

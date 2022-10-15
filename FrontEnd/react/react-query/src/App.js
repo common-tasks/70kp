@@ -1,5 +1,5 @@
 import "./App.css";
-import { getHealth, getServices, getService } from "./RestClient";
+import { getHealth, getServices, getService, updateService } from "./RestClient";
 import { useQuery } from "react-query";
 
 function App() {
@@ -16,6 +16,11 @@ function App() {
     console.log('specific service ' + JSON.stringify(specificService.data));
   }
 
+  const updateSvc = useQuery("updateService",updateService);
+  if(updateSvc.data) {
+    console.log('updated service' + JSON.stringify(updateSvc.data));
+  }
+  
   if (healthStatus.isLoading) {
     return <div>Loading...</div>;
   }
