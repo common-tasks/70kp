@@ -3,17 +3,15 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
-	"net/http"
 )
 
 type Service struct {
 	ServiceName string `json:"name"`
 	ServiceID   string `json:"id"`
-}
-type Response struct {
-	Services []Service `json:"services"`
 }
 
 func main() {
@@ -23,18 +21,19 @@ func main() {
 	router.HandleFunc("/health-check", HealthCheck).Methods("GET")
 	router.HandleFunc("/allServices", AllServices)
 	router.HandleFunc("/service/{name}", SingleService)
+	router.HandleFunc("/services", AddService).Methods("POST")
 
 	var port string = ":9999"
 	fmt.Println("starting server")
-	
+
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},
 		AllowCredentials: true,
 	})
-	
+
 	handler := c.Handler(router)
 	//start and listen to the request
-	
+
 	http.ListenAndServe(port, handler)
 
 }
@@ -53,15 +52,23 @@ func AllServices(w http.ResponseWriter, r *http.Request) {
 }
 func SingleService(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("End point hit: specific service")
-	vars:=mux.Vars(r)
-	name:=vars["name"]
+	vars := mux.Vars(r)
+	name := vars["name"]
 	for _, service := range GetServices() {
-		if(service.ServiceName==name){
+		if service.ServiceName == name {
 			json.NewEncoder(w).Encode(service)
 		}
 	}
-	w.WriteHeader(http.StatusOK)
+}
 
+func AddService(w http.ResponseWriter, r *http.Request) {
+	reqBody, _ := ioutil.ReadAll(r.Body)
+	var service Service
+	json.Unmarshal(reqBody, &service)
+
+	services := GetServices()
+	services = append(services, service)
+	json.NewEncoder(w).Encode(services)
 }
 
 func GetServices() []Service {
