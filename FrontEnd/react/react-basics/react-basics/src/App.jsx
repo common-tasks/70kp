@@ -1,21 +1,26 @@
+import React from "react";
 import "./App.css";
-import Calculator from "./Calculator";
-import RequestAnalyzer from "./RequestsAnalyzer";
+import CommonSearchBar from "./CommomSearchBar";
+import Clock from "./Clock";
 
-function App() {
-  return (
-    <div className="App">
-      <DisplayMessage name="kunar" />
-      <Calculator num1="2" num2="5" counter="-9" />
-      <RequestAnalyzer counter={0} />
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { searchText: "" };
+  }
+
+  updateSearchText = (text) => {
+    this.setState({ searchText: text });
+    console.log("search text in App " + this.state.searchText);
+  };
+  render() {
+    return (
+      <div className="App">
+        <CommonSearchBar searchText={this.state.searchText} />
+        <Clock />
+      </div>
+    );
+  }
 }
-function DisplayMessage(props) {
-  return (
-    <>
-      <h1>{props.name}</h1>
-    </>
-  );
-}
+
 export default App;
