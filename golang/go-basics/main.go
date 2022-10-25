@@ -11,6 +11,10 @@ func main() {
 	arr2:=[]int{1,2,3,4}
 	fmt.Printf("sum of input array2 is %d",SumOfArray(arr2))
 
+	arr3:=[]int{1,2,3,4,5}
+	fmt.Printf("number found? %t",LinearSearch(arr3,11))
+
+
 }
 
 func newFunction() {
