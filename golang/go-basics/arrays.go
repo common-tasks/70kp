@@ -36,3 +36,22 @@ func BinarySearch(sarray []int, item int) bool {
 	}
 	return isFound
 }
+
+// []int{1, -2, 3, 4, -4, 6, -14, 6, 2}
+func LargestSumSubArray(array []int) int {
+
+	var largestSum = 0
+	var currentLargest = 0
+	for i := 0; i < len(array); i++ {
+		currentLargest = currentLargest + array[i]
+		if currentLargest < 0 {
+			currentLargest = 0
+		}
+		if currentLargest > largestSum {
+			largestSum = currentLargest
+		}
+
+	}
+
+	return largestSum
+}
