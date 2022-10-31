@@ -9,9 +9,14 @@ import
 
 func main(){
 	fmt.Println("main method entry")
-	rotateArrayProblem()
-	arrayWaveFormProblem()
+	callMethods()
 	
+}
+
+func callMethods() {
+	// rotateArrayProblem()
+	// arrayWaveFormProblem()
+	goroutines.AboutGoRoutines()
 }
 
 func rotateArrayProblem() {
