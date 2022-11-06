@@ -8,6 +8,7 @@ func DSAProblems(){
 	// array = []int{ 8, 1, 2, 3, 4, 5, 6, 4, 2 }
 	// ArrayWaveForm(array)
 
-	ArrayMain()
+	// ArrayMain()
+	RecursionMain()
 
 }

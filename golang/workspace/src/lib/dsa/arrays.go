@@ -5,23 +5,53 @@ import (
 )
 
 func ArrayMain() {
-	arr := []int{8, -1, 6, 1, 9, 3, 2, 7, 4, -1}
-	indexArray(arr)
+
+	// arr := []int{8, -1, 6, 1, 9, 3, 2, 7, 4, -1}
+	// IndexArray(arr)
+	result:=SmallestPositiveMissingNumber()
+	fmt.Printf("smallest positive missing number is %d",result)
 
 }
-func indexArray(arr []int) {
+func SmallestPositiveMissingNumber() int {
+	a := []int{8, 5, 6, 1, 9, 11, 2, 7, 3, 10}
+	//sort the array
+	for i := 0; i < len(a); i++ {
+		for j := i+1; j < len(a); j++ {
+			var temp int
+			if(a[i]>a[j]){
+				temp=a[i]
+				a[i]=a[j]
+				a[j]=temp
+
+			}	
+		}
+	}
+	for i := 0; i < len(a); i++ {
+		fmt.Print(a[i])
+		fmt.Print(" ")
+	}
+	small:=a[0]
+	for i := 1; i < len(a); i++ {
+		small=small+1
+		if(small!=a[i]){
+			return small
+		}
+	}
+	return -1
+}
+func IndexArray(arr []int) {
 	ln := len(arr)
 	for i := 0; i < ln; i++ {
-		for j := i+1; j < (ln-(i+1)); j++ {
-			if(arr[i]>arr[j]){
-				temp:=arr[i]
-				arr[j]=arr[i]
-				arr[i]=temp
+		for j := i + 1; j < (ln - (i + 1)); j++ {
+			if arr[i] > arr[j] {
+				temp := arr[i]
+				arr[j] = arr[i]
+				arr[i] = temp
 			}
 		}
 	}
 	for i := 0; i < ln; i++ {
-		fmt.Print(arr[i]) 
+		fmt.Print(arr[i])
 		fmt.Print(" ")
 	}
 }
