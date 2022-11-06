@@ -4,5 +4,5 @@ func RunGoRoutines() {
 	// AboutGoRoutines()
 	// AboutChannels()
 	// BlockingChannel()
-	Semaphore()
+	// Semaphore()
 }
