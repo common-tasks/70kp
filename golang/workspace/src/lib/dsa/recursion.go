@@ -12,3 +12,6 @@ func Factorial(n int) int {
 	}
 	return n * Factorial(n-1)
 }
+func PrintBase16(){
+
+}
