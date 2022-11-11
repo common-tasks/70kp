@@ -1,18 +1,24 @@
-let arr1 =["hello","world","I","am","here"];
-console.log(arr1);
-let arr2 = new Array();
-arr2.push("ji");
-arr2.push('haan');
-console.log(arr2);
-arr2.unshift("mai aaya");
-console.log(arr2);
+var names =["draupadi","murmu","james","khalkho"]
+var dnames= names.slice(0,10);
+names[0]="mahamahim draupadi"
+console.log(dnames);
+console.log(names);
+names.splice(0,0,"chaplus");
+console.log(names);
+console.log(dnames);
 
-arr2.splice(arr2.length-1,1);
-console.log(arr2);
+var emp =[["anurag",110],["gama",100000],["bhola",200000]]
+console.log(emp);
+var emp4=["babua",500]
+emp.push(emp4);
+console.log(emp);
+emp[3]=["rama",1];
+console.log(emp);
+emp.splice(3,1);
+console.log(emp);
+var e2= emp.slice();
+console.log(e2.length);
 
-arr2.push("haan");
-
-const arr3 = arr2.slice(0,arr2.length);
-
-console.log(arr2);
-console.log(arr3.shift());
+names.forEach(element => {
+    console.log(element);
+});
