@@ -1,5 +1,7 @@
+import {greetMe} from './ArrayMethods';
 function func1(msg) {
   console.log(msg);
+  greetMe();
 }
 
 const func2 = function (arg) {
