@@ -8,4 +8,5 @@ func RunConcepts() {
 	fmt.Println("temp in fahrenheit: ", ft)
 	testString()
 	point()
+	functions()
 }
